@@ -1,0 +1,85 @@
+.navbar {
+  background-color: #f4a797;
+  max-height: 90px !important;
+}
+.navbar-image {
+  max-height: 75px;
+}
+.navbar-brand {
+  color: #3e8029;
+  font-size: 25px !important;
+  font-style: italic;
+  font-weight: 500;
+}
+.btn, .btn-primary  {
+  background-color: #3e8029 !important;
+  border-radius: 25px !important;
+  border-color: #3e8029;
+  font-size: 20px !important;
+  padding: 1vh 2vw !important;
+}
+.carousel-caption {
+  top: 60% !important;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+.carousel-item h5 {
+  font-size: 42px !important;
+}
+.carousel-item p {
+  font-size: 30px !important;
+}
+.selfRegisterForm {
+  background-color: #f4a797;
+  max-width: 85% !important;
+  margin: 32px 7.5% !important;
+  padding: 2vh 2vw !important;
+  border-radius: 25px !important;
+}
+.firstCol {
+  background-color: #f4a797;
+  height: 100vh;
+  position: relative;
+  box-shadow: 0px 10px 30px 0px #0000001a !important;
+}
+#loginPage {
+  margin: 0px !important;
+  max-width: 100vw;
+}
+.loginContent {
+  padding: 25vh 8vw;
+}
+.loginIMG {
+  max-width: 20vw !important;
+}
+.sidebar {
+  background-color: #f4a797;
+  height: 100vh;
+}
+.sidebarImage {
+  max-width: 75px !important;
+}
+.nav-pills .nav-link.active {
+  background-color: #F0D7D2 !important;
+  color: #3e8029;
+}
+.nav-pills li {
+  padding: 5px 0;
+  font-size:24px;
+}
+.welcome-message {
+  margin: 4vh 0;
+}
+.card-number {
+  margin: 8vh 2vw;
+  font-size: 9vh;
+}
+.card-title {
+  margin-top: 11vh;
+  margin-bottom: 11vh;
+  font-size: 3vh;
+
+}
+.card {
+  max-height: 28vh;
+}

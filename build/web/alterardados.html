@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Alterar Dados</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link href="css/styles.css" rel="stylesheet" />
+
+    </head>
+    <body>
+         <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light"><img class="align-items-center" id="logo" src="img/beibe.png" height="100" alt="Logo Beibe"/></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="criaratendimento.html">Abrir Atendimento</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="listaatendimentoscliente.html">Atendimentos em Andamento</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="listaatendimentosclientehistorico.html">Meus Atendimentos</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="portalcliente.html">Início</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="alterardados.html">Alterar Dados</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="index.html">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4">Alterar Dados</h1>
+                    <form action="alterardados.html" method="post">
+                        <div class="form-label">
+                            <label for="login">Login</label>
+                            <input type="text" class="form-control" id="login">
+                        </div>
+                        <div class="form-label">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome">
+                        </div>
+                        <div class="form-label">
+                            <label for="InputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="InputPassword1">
+                        </div>
+                        <div class="form-label">
+                            <label for="InputPassword1">Confirme a Senha</label>
+                            <input type="password" class="form-control" id="InputPassword1">
+                        </div>
+                        <div class="form-label">
+                            <label for="logradouro">Endereço</label>
+                            <input type="text" class="form-control" id="logradouro">
+                        </div>
+                        <div class="form-label">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep">
+                        </div>
+                        <div class="form-label">
+                            <label for="numero">Número</label>
+                            <input type="text" class="form-control" id="numero">
+                        </div>
+                        <div class="form-label">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" class="form-control" id="complemento">
+                        </div>
+                        <div class="form-label">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" class="form-control" id="bairro">
+                        </div>
+                        <div class="form-label">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade">
+                        </div>
+                        <div class="form-label">
+                            <label for="uf">UF</label>
+                            <input type="text" class="form-control" id="uf">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

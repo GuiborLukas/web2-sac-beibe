@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26ac3f58-053b-4e73-aa0d-2302df8e57de">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SacBeibe"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="302"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="698"/>
+	<queryString>
+		<![CDATA[SELECT 
+tresmaisreclamados.quantidade,
+tb_produtos.nome_produto,
+tb_produtos.descricao_produto,
+categoria.nome_categoria,
+tb_produtos.peso_produto
+FROM
+(SELECT
+tb_produtos.id_produto as id,
+count(tb_atendimento.id_produto) as quantidade
+from tb_atendimento
+INNER JOIN tb_produtos on tb_atendimento.id_produto = tb_produtos.id_produto
+WHERE tb_atendimento.tipo_atendimento = 1
+GROUP BY id
+ORDER BY quantidade DESC
+LIMIT 3) tresmaisreclamados
+INNER JOIN tb_produtos ON tresmaisreclamados.id = tb_produtos.id_produto
+INNER JOIN tb_categorias_produtos categoria on tb_produtos.id_categoria = categoria.id_categoria]]>
+	</queryString>
+	<field name="quantidade" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+	</field>
+	<field name="nome_produto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_produto"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_produtos"/>
+	</field>
+	<field name="descricao_produto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descricao_produto"/>
+		<property name="com.jaspersoft.studio.field.label" value="descricao_produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_produtos"/>
+	</field>
+	<field name="nome_categoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_categoria"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_categoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_categorias_produtos"/>
+	</field>
+	<field name="peso_produto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="peso_produto"/>
+		<property name="com.jaspersoft.studio.field.label" value="peso_produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_produtos"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="-1" width="594" height="30" uuid="612009fc-fe64-46ee-8a3a-ac12b964c71b"/>
+				<textElement textAlignment="Center">
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Relatório de Produtos Mais Reclamados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="700" y="1" width="100" height="20" uuid="b0364abb-0e4a-412d-99df-0164e1e52336"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="298" height="20" uuid="c70b5709-c476-40df-8685-1252696261bb"/>
+				<textElement textAlignment="Left">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[SAC BEIBE - Beauty Embuste Indústria de Beleza e Estética]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="66111620-e498-4705-88b1-492675270fd9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58e75454-151b-49d6-a2f5-14829045bc3b"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Quantidade de Reclamações]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="229" height="30" uuid="73bc6c2a-7e3b-415f-aac8-3748b3ec70dc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1bce10c7-b6e4-4fbb-86f8-bf503401479c"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nome do Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="0" width="251" height="30" uuid="9fceca47-bc27-47ca-a72f-2592de6249e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3c3c4570-7457-4da2-aeb9-26fd6f1f9d13"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="0" width="120" height="30" uuid="a949e974-ae29-4cdc-9dff-62a16efad9c1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ab2fd6b-7e60-4469-a73f-eef66a648911"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="0" width="100" height="30" uuid="9de33353-0f8b-4f48-b45a-6711acfc9e4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23bb8c6f-1fcc-49e1-ad93-f1ef44f5327f"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="600096a6-85d3-4f1f-8ccc-632110b0d546">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58e75454-151b-49d6-a2f5-14829045bc3b"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="229" height="30" uuid="d26165c4-a9d4-4e51-b481-6dabaa66aad9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1bce10c7-b6e4-4fbb-86f8-bf503401479c"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{nome_produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="0" width="251" height="30" uuid="9fa7135c-f0e3-410f-a117-ba3588812628">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3c3c4570-7457-4da2-aeb9-26fd6f1f9d13"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{descricao_produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="120" height="30" uuid="a42f4a2e-79bf-4c83-acdc-9de904f3b4fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ab2fd6b-7e60-4469-a73f-eef66a648911"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{nome_categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="30" uuid="28047389-2265-48fb-bee4-919d0b2712d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23bb8c6f-1fcc-49e1-ad93-f1ef44f5327f"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{peso_produto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
